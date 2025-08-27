@@ -30,7 +30,8 @@ export default function RootLayout({
           <Header>
             <Image 
               src={logoImg} 
-              alt="" />
+              alt="" 
+            />
           </Header>
 
           {children} 
