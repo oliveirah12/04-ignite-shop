@@ -1,6 +1,6 @@
 import { getCssText } from "@/src/styles/stitches.config";
 import { globalStyles } from "../styles/global";
-
+import Image from "next/image"
 
 import logoImg from '../assets/logo.svg'
 import { Container, Header } from "../styles/pages/app";
@@ -28,9 +28,11 @@ export default function RootLayout({
       <body>
         <Container> 
           <Header>
-            <img src={logoImg.src} alt="" />
+            <Image 
+              src={logoImg} 
+              alt="" />
           </Header>
-          
+
           {children} 
         </Container> 
       </body>
