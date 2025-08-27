@@ -1,6 +1,10 @@
 import { getCssText } from "@/src/styles/stitches.config";
 import { globalStyles } from "../styles/global";
 
+
+import logoImg from '../assets/logo.svg'
+import { Container, Header } from "../styles/pages/app";
+
 globalStyles()
 
 export default function RootLayout({
@@ -22,7 +26,13 @@ export default function RootLayout({
         <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
       </head>
       <body>
-        {children}
+        <Container> 
+          <Header>
+            <img src={logoImg.src} alt="" />
+          </Header>
+          
+          {children} 
+        </Container> 
       </body>
     </html>
   )
