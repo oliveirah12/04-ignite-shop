@@ -1,83 +1,27 @@
-'use client'
-import { HomeContainer, Product } from "../styles/pages/home";
-import Image from "next/image";
-import { useKeenSlider } from 'keen-slider/react'
+import { stripe } from "../lib/stripe";
+import Stripe from "stripe";
+import ClientSlider from "../components/clientSlider";
+import { HomeContainer } from "../styles/pages/home";
 
-import 'keen-slider/keen-slider.min.css'
+export default async function Home() {
+  const response = await stripe.products.list({
+    expand: ["data.default_price"],
+  });
 
-import camiseta1 from '../assets/camisetas/1.png'
-import camiseta2 from '../assets/camisetas/2.png'
-import camiseta3 from '../assets/camisetas/3.png'
+  const products = response.data.map((product) => {
+    const price = product.default_price as Stripe.Price;
 
-export default function Home() {
-
-  const [sliderRef] = useKeenSlider({
-    slides:{
-      perView: 3,
-      spacing: 48
-    }
-  })
+    return {
+      id: product.id,
+      name: product.name,
+      imageUrl: product.images[0],
+      price: price.unit_amount! / 100,
+    };
+  });
 
   return (
-    <HomeContainer ref={sliderRef}
-      className="keen-slider">
-      <Product className="keen-slider__slide">
-        <Image 
-          src={camiseta1} 
-          width={520} 
-          height={480} 
-          alt="" 
-        />
-        
-
-        <footer>
-          <strong>Camiseta X</strong>
-          <span>R$ 79,90</span>
-        </footer>
-      </Product>
-
-      <Product className="keen-slider__slide">
-        <Image 
-          src={camiseta2} 
-          width={520} 
-          height={480} 
-          alt="" 
-        />
-        
-
-        <footer>
-          <strong>Camiseta X</strong>
-          <span>R$ 79,90</span>
-        </footer>
-      </Product>
-
-      <Product className="keen-slider__slide">
-        <Image 
-          src={camiseta3} 
-          width={520} 
-          height={480} 
-          alt="" 
-        />
-
-        <footer>
-          <strong>Camiseta X</strong>
-          <span>R$ 79,90</span>
-        </footer>
-      </Product>
-
-      <Product className="keen-slider__slide">
-        <Image 
-          src={camiseta3} 
-          width={520} 
-          height={480} 
-          alt="" 
-        />
-
-        <footer>
-          <strong>Camiseta X</strong>
-          <span>R$ 79,90</span>
-        </footer>
-      </Product>
+    <HomeContainer>
+      <ClientSlider products={products} />
     </HomeContainer>
-  );
+  )
 }
