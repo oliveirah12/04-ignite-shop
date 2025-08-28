@@ -11,7 +11,7 @@ interface ClientSliderProps {
     id: string;
     name: string;
     imageUrl: string;
-    price: number;
+    price: string;
   }[];
 }
 
@@ -30,7 +30,7 @@ export default function ClientSlider({ products }: ClientSliderProps) {
           <Image src={product.imageUrl} width={520} height={480} alt={product.name}/>
           <footer>
             <strong>{product.name}</strong>
-            <span>R$ {product.price.toFixed(2)}</span>
+            <span>{product.price}</span>
           </footer>
         </Product>
       ))}
