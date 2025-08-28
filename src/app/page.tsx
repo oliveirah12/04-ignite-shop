@@ -16,22 +16,41 @@ export default function Home() {
           height={480} 
           alt="" 
         />
+        
+
+        <footer>
+          <strong>Camiseta X</strong>
+          <span>R$ 79,90</span>
+        </footer>
+      </Product>
+
+      <Product>
         <Image 
           src={camiseta2} 
           width={520} 
           height={480} 
           alt="" 
         />
+        
+
+        <footer>
+          <strong>Camiseta X</strong>
+          <span>R$ 79,90</span>
+        </footer>
+      </Product>
+
+      <Product>
         <Image 
           src={camiseta3} 
           width={520} 
           height={480} 
           alt="" 
         />
+        
 
         <footer>
           <strong>Camiseta X</strong>
-          <span>R$79,90</span>
+          <span>R$ 79,90</span>
         </footer>
       </Product>
     </HomeContainer>
