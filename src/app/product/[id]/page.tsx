@@ -1,11 +1,16 @@
-interface ProductPageProps {
-  params: {
-    id: string
-  }
-}
+import { ImageContainer, ProductContainer, ProductDetails } from "@/src/styles/pages/product";
+import Image from "next/image";
 
-export default function Product({ params }: ProductPageProps) {
+export default function Product() {
   return (
-    <h1>Produto: {params.id}</h1>
+    <ProductContainer>
+      <ImageContainer>
+
+      </ImageContainer>
+
+      <ProductDetails>
+        <h1></h1>
+      </ProductDetails>
+    </ProductContainer>
   )
 }
