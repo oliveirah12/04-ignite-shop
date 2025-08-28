@@ -3,10 +3,11 @@ import { Product } from "../styles/pages/home";
 import Image from "next/image";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import Link from "next/link";
 
 export const revalidate = 60 * 60 * 2
 
-interface ClientSliderProps {
+interface ProductsSliderProps {
   products: {
     id: string;
     name: string;
@@ -15,7 +16,7 @@ interface ClientSliderProps {
   }[];
 }
 
-export default function ClientSlider({ products }: ClientSliderProps) {
+export default function ProductsSlider({ products }: ProductsSliderProps) {
   const [sliderRef] = useKeenSlider({
     slides: {
       perView: 3,
@@ -26,13 +27,15 @@ export default function ClientSlider({ products }: ClientSliderProps) {
   return (
     <div ref={sliderRef} className="keen-slider">
       {products.map((product) => (
-        <Product key={product.id} className="keen-slider__slide">
-          <Image src={product.imageUrl} width={520} height={480} alt={product.name}/>
-          <footer>
-            <strong>{product.name}</strong>
-            <span>{product.price}</span>
-          </footer>
-        </Product>
+        <Link href={`/product/${product.id}`} key={product.id} >
+          <Product className="keen-slider__slide">
+            <Image src={product.imageUrl} width={520} height={480} alt={product.name}/>
+            <footer>
+              <strong>{product.name}</strong>
+              <span>{product.price}</span>
+            </footer>
+          </Product>
+        </Link>
       ))}
     </div>
   );

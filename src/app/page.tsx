@@ -1,7 +1,7 @@
 import { stripe } from "../lib/stripe";
 import Stripe from "stripe";
-import ClientSlider from "../components/clientSlider";
 import { HomeContainer } from "../styles/pages/home";
+import ProductsSlider from "../components/ProductsSlider";
 
 export default async function Home() {
   const response = await stripe.products.list({
@@ -24,7 +24,7 @@ export default async function Home() {
 
   return (
     <HomeContainer>
-      <ClientSlider products={products} />
+      <ProductsSlider products={products} />
     </HomeContainer>
   )
 }
