@@ -9,7 +9,11 @@ const nextConfig: NextConfig = {
         hostname: "files.stripe.com",
       },
     ]
-  }
+  },
+  
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 export default nextConfig;

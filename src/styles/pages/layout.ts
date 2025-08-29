@@ -1,9 +1,9 @@
 import { styled } from "../stitches.config";
 
-export const Container = styled('div',{
+export const Container = styled('main',{
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-start',
+  //alignItems: 'flex-start',
   justifyContent: 'center',
   minHeight: '100vh',
 
