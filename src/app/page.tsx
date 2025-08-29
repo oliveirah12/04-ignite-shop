@@ -3,6 +3,8 @@ import Stripe from "stripe";
 import { HomeContainer } from "../styles/pages/home";
 import ProductsSlider from "../components/ProductsSlider";
 
+export const revalidate = 7200
+
 export default async function Home() {
   const response = await stripe.products.list({
     expand: ["data.default_price"],

@@ -5,7 +5,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Link from "next/link";
 
-export const revalidate = 60 * 60 * 2
+
 
 interface ProductsSliderProps {
   products: {

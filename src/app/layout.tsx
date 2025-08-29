@@ -3,6 +3,7 @@ import Image from "next/image";
 import logoImg from "../assets/logo.svg";
 import { Container, Header } from "../styles/pages/layout";
 import { globalStyles } from "../styles/global";
+import { HomeContainer } from "../styles/pages/home";
 
 globalStyles();
 
@@ -28,7 +29,7 @@ export default function RootLayout({
           <Header>
             <Image src={logoImg} alt="Logo" />
           </Header>
-          {children}
+            {children}
         </Container>
 
       </body>
